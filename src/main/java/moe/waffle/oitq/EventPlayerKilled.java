@@ -2,6 +2,8 @@ package moe.waffle.oitq;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.entity.Arrow;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -18,27 +20,30 @@ public class EventPlayerKilled implements Listener {
     public void OnPlayerDeath(PlayerDeathEvent ev) {
         if (!GameVarStorage.GameActive) return;
 
+        ev.setDeathMessage("");
+
         Player affectedPlayer = ev.getEntity();
-        Player affectingPlayer = affectedPlayer.getKiller();
-        String killingWeapon = affectedPlayer.getItemInUse().getType().name();
+        Entity affector = affectedPlayer.getKiller();
+
+        affectedPlayer.spigot().respawn(); // skip the death screen
+
+        if (affector == null || ((Player) affector).getInventory().getItemInMainHand().getType() == Material.BOW) {
+            return;
+        }
+
+        Player affectingPlayer = (Player) affector;
 
         Integer KillerCurrentScore = GameVarStorage.kills.get(affectingPlayer);
         KillerCurrentScore++;
 
         GameVarStorage.kills.put(affectingPlayer, KillerCurrentScore);
+        GUIComponent.UpdateGUI();
 
         // all kills give an arrow
         affectingPlayer.getInventory().addItem(new ItemStack(Material.ARROW, 1));
 
         // handle this last cuz its not super important
-        if (killingWeapon.equals("IRON_SWORD")) {
-            BroadcastHelper.BroadcastKillSword(affectingPlayer, affectedPlayer);
-        } else if (killingWeapon.equals("BOW")) {
-            BroadcastHelper.BroadcastKillBow(affectingPlayer, affectedPlayer);
-        } else {
-            // if all else fails, use the sword kill
-            BroadcastHelper.BroadcastKillSword(affectingPlayer, affectedPlayer);
-        }
+        BroadcastHelper.BroadcastKillSword(affectingPlayer, affectedPlayer);
 
         // check if the player has reached winning score (21):
         if (KillerCurrentScore == 21) {

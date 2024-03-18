@@ -28,4 +28,15 @@ public class BroadcastHelper {
             player.sendMessage(message);
         });
     }
+
+    public static void BroadcastGameStart() {
+        Bukkit.getOnlinePlayers().forEach(player -> {
+            player.sendMessage(ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "+============= ONE IN THE QUIVER =============+");
+            player.sendMessage(ChatColor.DARK_GRAY + "- First to " + ChatColor.BOLD + "21" + ChatColor.RESET +""+ ChatColor.DARK_GRAY + " kills wins.");
+            player.sendMessage(ChatColor.DARK_GRAY + "- Bow shots kill instantly.");
+            player.sendMessage(ChatColor.DARK_GRAY + "- Melee hits do not kill instantly.");
+            player.sendMessage(ChatColor.DARK_GRAY + "- All kills grant one arrow to the killer.");
+            player.sendMessage(ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "+================= GOOD LUCK =================+");
+        });
+    }
 }

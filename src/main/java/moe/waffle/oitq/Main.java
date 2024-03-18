@@ -11,9 +11,14 @@ public final class Main extends JavaPlugin {
 
         // load commands
         getCommand("start").setExecutor(new CommandStart());
+        getCommand("endgame").setExecutor(new CommandEndGame());
 
         // load events
         new EventPlayerKilled(this);
+        new EventPlayerBowHit(this);
+        new EventPlayerRespawn(this);
+
+        GUIComponent.PrepareGUI(getServer());
 
         Bukkit.getLogger().info("okawaffles OITQ has been enabled.");
     }

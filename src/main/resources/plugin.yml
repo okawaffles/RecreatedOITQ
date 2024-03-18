@@ -9,3 +9,6 @@ commands:
   start:
     usage: /start
     permission: oitq.start
+  endgame:
+    usage: /endgame
+    permission: oitq.endgame
