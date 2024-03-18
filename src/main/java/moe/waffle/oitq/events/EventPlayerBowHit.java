@@ -1,5 +1,9 @@
-package moe.waffle.oitq;
+package moe.waffle.oitq.events;
 
+import moe.waffle.oitq.core.BroadcastHelper;
+import moe.waffle.oitq.core.GameVarStorage;
+import moe.waffle.oitq.Main;
+import moe.waffle.oitq.components.GUIComponent;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Arrow;

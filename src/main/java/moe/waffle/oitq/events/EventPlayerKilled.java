@@ -1,10 +1,14 @@
-package moe.waffle.oitq;
+package moe.waffle.oitq.events;
 
+import moe.waffle.oitq.*;
+import moe.waffle.oitq.components.GUIComponent;
+import moe.waffle.oitq.core.BroadcastHelper;
+import moe.waffle.oitq.core.GameEndEvent;
+import moe.waffle.oitq.core.GameEndReason;
+import moe.waffle.oitq.core.GameVarStorage;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
-import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Entity;
-import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

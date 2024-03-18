@@ -1,6 +1,7 @@
-package moe.waffle.oitq;
+package moe.waffle.oitq.commands;
 
-import org.bukkit.Bukkit;
+import moe.waffle.oitq.core.GameEndEvent;
+import moe.waffle.oitq.core.GameEndReason;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;

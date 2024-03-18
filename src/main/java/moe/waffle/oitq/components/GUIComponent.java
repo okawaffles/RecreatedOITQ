@@ -1,5 +1,6 @@
-package moe.waffle.oitq;
+package moe.waffle.oitq.components;
 
+import moe.waffle.oitq.core.GameVarStorage;
 import org.bukkit.ChatColor;
 import org.bukkit.Server;
 import org.bukkit.scoreboard.*;

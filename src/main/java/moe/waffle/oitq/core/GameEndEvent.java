@@ -1,4 +1,4 @@
-package moe.waffle.oitq;
+package moe.waffle.oitq.core;
 
 import org.bukkit.ChatColor;
 

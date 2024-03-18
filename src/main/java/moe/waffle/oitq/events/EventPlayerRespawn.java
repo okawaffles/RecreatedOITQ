@@ -1,8 +1,9 @@
-package moe.waffle.oitq;
+package moe.waffle.oitq.events;
 
+import moe.waffle.oitq.core.GameVarStorage;
+import moe.waffle.oitq.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
-import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

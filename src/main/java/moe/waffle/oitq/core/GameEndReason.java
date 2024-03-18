@@ -1,4 +1,4 @@
-package moe.waffle.oitq;
+package moe.waffle.oitq.core;
 
 public enum GameEndReason {
     PLAYER_REACHED_WIN_SCORE,
