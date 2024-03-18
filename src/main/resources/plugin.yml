@@ -1,0 +1,11 @@
+name: OneInTheQuiver
+version: '${project.version}'
+main: moe.waffle.oitq.Main
+api-version: 1.19
+authors: [ okawaffles ]
+description: An attempted recreation of Mineplex's OITQ game.
+website: www.okawaffles.com
+commands:
+  start:
+    usage: /start
+    permission: oitq.start
