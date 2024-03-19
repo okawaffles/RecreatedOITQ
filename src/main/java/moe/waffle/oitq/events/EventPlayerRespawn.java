@@ -1,5 +1,7 @@
 package moe.waffle.oitq.events;
 
+import moe.waffle.oitq.components.MapConfiguration;
+import moe.waffle.oitq.components.MapLoaderComponent;
 import moe.waffle.oitq.core.GameVarStorage;
 import moe.waffle.oitq.Main;
 import org.bukkit.Bukkit;
@@ -21,6 +23,8 @@ public class EventPlayerRespawn implements Listener {
         if (!GameVarStorage.GameActive) return;
 
         Player respawnee = ev.getPlayer();
+
+        //respawnee.teleport(MapLoaderComponent.loadedMap.getRandomSpawnLocation());
 
         respawnee.setHealth(20);
 

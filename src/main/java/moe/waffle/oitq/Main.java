@@ -3,7 +3,9 @@ package moe.waffle.oitq;
 import moe.waffle.oitq.commands.CommandEndGame;
 import moe.waffle.oitq.commands.CommandStart;
 import moe.waffle.oitq.components.GUIComponent;
+import moe.waffle.oitq.components.MapLoaderComponent;
 import moe.waffle.oitq.events.EventPlayerBowHit;
+import moe.waffle.oitq.events.EventPlayerDamage;
 import moe.waffle.oitq.events.EventPlayerKilled;
 import moe.waffle.oitq.events.EventPlayerRespawn;
 import org.bukkit.Bukkit;
@@ -23,8 +25,10 @@ public final class Main extends JavaPlugin {
         new EventPlayerKilled(this);
         new EventPlayerBowHit(this);
         new EventPlayerRespawn(this);
+        new EventPlayerDamage(this);
 
         GUIComponent.PrepareGUI(getServer());
+        MapLoaderComponent.LoadConfig(this);
 
         Bukkit.getLogger().info("okawaffles OITQ has been enabled.");
     }

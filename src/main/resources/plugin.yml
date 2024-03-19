@@ -7,7 +7,7 @@ description: An attempted recreation of Mineplex's OITQ game.
 website: www.okawaffles.com
 commands:
   start:
-    usage: /start
+    usage: /start <mapName>
     permission: oitq.start
   endgame:
     usage: /endgame

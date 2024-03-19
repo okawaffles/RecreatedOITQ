@@ -1,8 +1,11 @@
 package moe.waffle.oitq.commands;
 
 import moe.waffle.oitq.components.GUIComponent;
+import moe.waffle.oitq.components.MapLoaderComponent;
+import moe.waffle.oitq.core.BroadcastHelper;
 import moe.waffle.oitq.core.GameVarStorage;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -13,6 +16,15 @@ import org.bukkit.inventory.meta.ItemMeta;
 public class CommandStart implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender,Command command, String label, String[] args) {
+        if (args.length == 0) return false;
+
+        sender.sendMessage(ChatColor.DARK_GRAY +""+ ChatColor.ITALIC + "Starting map data load of " + ChatColor.DARK_AQUA + args[0] + "...");
+        boolean mapLoadSuccessful = MapLoaderComponent.LoadMap(args[0]);
+        if (!mapLoadSuccessful) {
+            sender.sendMessage(ChatColor.DARK_RED + "[!] Map load was unsuccessful! Are you sure that map exists?");
+            return true;
+        }
+
         GameVarStorage.GameActive = true;
         Bukkit.getOnlinePlayers().forEach(player -> {
             GameVarStorage.kills.put(player, 0);
@@ -35,8 +47,12 @@ public class CommandStart implements CommandExecutor {
                     new ItemStack(Material.ARROW, 1)
             );
 
+            player.spigot().respawn();
+
             GUIComponent.UpdateGUI();
         });
+
+        BroadcastHelper.BroadcastGameStart();
 
         return true;
     }
