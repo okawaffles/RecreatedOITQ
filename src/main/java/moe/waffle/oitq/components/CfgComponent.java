@@ -11,8 +11,8 @@ import java.util.Map;
 
 import static org.bukkit.Bukkit.getServer;
 
-public class MapLoaderComponent {
-    private static FileConfiguration pluginConfig;
+public class CfgComponent {
+    public static FileConfiguration pluginConfig;
     public static MapConfiguration loadedMap = new MapConfiguration();
 
     public static void LoadConfig(Main plugin) {

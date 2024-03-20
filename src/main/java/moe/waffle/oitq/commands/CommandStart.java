@@ -1,7 +1,8 @@
 package moe.waffle.oitq.commands;
 
 import moe.waffle.oitq.components.GUIComponent;
-import moe.waffle.oitq.components.MapLoaderComponent;
+import moe.waffle.oitq.components.CfgComponent;
+import moe.waffle.oitq.components.TimerComponent;
 import moe.waffle.oitq.core.BroadcastHelper;
 import moe.waffle.oitq.core.GameVarStorage;
 import org.bukkit.Bukkit;
@@ -19,13 +20,15 @@ public class CommandStart implements CommandExecutor {
         if (args.length == 0) return false;
 
         sender.sendMessage(ChatColor.DARK_GRAY +""+ ChatColor.ITALIC + "Starting map data load of " + ChatColor.DARK_AQUA + args[0] + "...");
-        boolean mapLoadSuccessful = MapLoaderComponent.LoadMap(args[0]);
+        boolean mapLoadSuccessful = CfgComponent.LoadMap(args[0]);
         if (!mapLoadSuccessful) {
             sender.sendMessage(ChatColor.DARK_RED + "[!] Map load was unsuccessful! Are you sure that map exists?");
             return true;
         }
 
         GameVarStorage.GameActive = true;
+        TimerComponent.StartTimer();
+
         Bukkit.getOnlinePlayers().forEach(player -> {
             GameVarStorage.kills.put(player, 0);
 
