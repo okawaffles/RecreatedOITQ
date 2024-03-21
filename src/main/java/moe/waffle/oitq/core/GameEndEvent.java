@@ -18,8 +18,8 @@ public class GameEndEvent {
                 if (kills == 21) {
                     // we need a blank string or else java gets MAD
                     BroadcastHelper.BroadcastMessage(
-                            ChatColor.DARK_AQUA + "" + ChatColor.BOLD + player.getName() +
-                                    ChatColor.RESET + ChatColor.DARK_GRAY + " has won the game!"
+                            ChatColor.BLUE + "Win> " + ChatColor.BOLD + player.getName() +
+                                ChatColor.RESET + ChatColor.GRAY + " has won the game!"
                     );
                 }
             });

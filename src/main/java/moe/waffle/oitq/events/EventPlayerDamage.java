@@ -1,6 +1,7 @@
 package moe.waffle.oitq.events;
 
 import moe.waffle.oitq.Main;
+import moe.waffle.oitq.core.GameVarStorage;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
@@ -22,6 +23,10 @@ public class EventPlayerDamage implements Listener {
 
         // disable fall damage for players
         if (ev.getCause() == EntityDamageEvent.DamageCause.FALL) {
+            ev.setCancelled(true);
+        }
+
+        if (ev.getCause() == EntityDamageEvent.DamageCause.CONTACT && GameVarStorage.FreezePlayers) {
             ev.setCancelled(true);
         }
     }

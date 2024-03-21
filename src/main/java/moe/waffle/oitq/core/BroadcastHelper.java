@@ -9,19 +9,47 @@ import org.bukkit.entity.Player;
 public class BroadcastHelper {
     public static void BroadcastKillBow(Player killer, Player killed) {
         Bukkit.getOnlinePlayers().forEach(player -> {
-            player.sendMessage(ChatColor.DARK_AQUA + killer.getName() +
-                    ChatColor.DARK_GRAY + " shot " +
-                    ChatColor.DARK_AQUA + killed.getName()
+            if (player == killer) {
+                player.sendMessage(ChatColor.BLUE + "Death> " +
+                        ChatColor.GRAY + "You killed " +
+                        ChatColor.YELLOW + killed.getName() +
+                        ChatColor.GRAY + " with " +
+                        ChatColor.YELLOW + "Archery" +
+                        ChatColor.GRAY + "."
                 );
+            } else {
+                player.sendMessage(ChatColor.BLUE + "Death> " +
+                        ChatColor.YELLOW + killer.getName() +
+                        ChatColor.GRAY + " killed " +
+                        ChatColor.YELLOW + killed.getName() +
+                        ChatColor.GRAY + " with " +
+                        ChatColor.YELLOW + "Archery" +
+                        ChatColor.GRAY + "."
+                );
+            }
         });
     }
 
     public static void BroadcastKillSword(Player killer, Player killed) {
         Bukkit.getOnlinePlayers().forEach(player -> {
-            player.sendMessage(ChatColor.DARK_AQUA + killer.getName() +
-                    ChatColor.DARK_GRAY + " melee'd " +
-                    ChatColor.DARK_AQUA + killed.getName()
-            );
+            if (player == killer) {
+                player.sendMessage(ChatColor.BLUE + "Death> " +
+                        ChatColor.GRAY + "You killed " +
+                        ChatColor.YELLOW + killed.getName() +
+                        ChatColor.GRAY + " with " +
+                        ChatColor.YELLOW + "Sword" +
+                        ChatColor.GRAY + "."
+                );
+            } else {
+                player.sendMessage(ChatColor.BLUE + "Death> " +
+                        ChatColor.YELLOW + killer.getName() +
+                        ChatColor.GRAY + " killed " +
+                        ChatColor.YELLOW + killed.getName() +
+                        ChatColor.GRAY + " with " +
+                        ChatColor.YELLOW + "Sword" +
+                        ChatColor.GRAY + "."
+                );
+            }
         });
     }
 

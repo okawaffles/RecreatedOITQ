@@ -34,14 +34,15 @@ public class TimerComponent {
 
     // this function constructs the string for the text that we see at the bottom during the timer
     private static String ConstructTimerGUI() {
-        final String GREEN_BLOCK = ChatColor.GREEN +""+ ChatColor.BOLD + "█";
-        final String RED_BLOCK = ChatColor.RED +""+ ChatColor.BOLD + "█";
+        final String GREEN_BLOCK = ChatColor.GREEN + "▌";
+        final String RED_BLOCK = ChatColor.RED + "▌";
 
         // want 16 segments divided by .5s each
         int segmentsGreen = Math.round(16 * (TimerCurrent / TimerGoal));
         int segmentsRed = 16 - segmentsGreen;
 
         StringBuilder progress = new StringBuilder();
+        progress.append("Game Start ");
 
         for (int i = 0; i < segmentsGreen; i++) {
             progress.append(GREEN_BLOCK);
