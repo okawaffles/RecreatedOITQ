@@ -31,6 +31,7 @@ public final class Main extends JavaPlugin {
         new EventPlayerBowHit(this);
         new EventPlayerRespawn(this);
         new EventPlayerDamage(this);
+        new EventPlayerMove(this);
         new EventPickup(this);
 
         GUIComponent.PrepareGUI(getServer());

@@ -6,6 +6,8 @@ public class GameEndEvent {
     public static void EndGame(GameEndReason reason) {
         if (reason == GameEndReason.PLAYER_REACHED_WIN_SCORE) {
             GameVarStorage.kills.forEach((player, kills) -> {
+                // also use this message to set players flight to off
+                player.setAllowFlight(false);
                 BroadcastHelper.BroadcastMessage(
                         ChatColor.DARK_AQUA + player.getName() +
                                 ChatColor.DARK_GRAY + " - " +
