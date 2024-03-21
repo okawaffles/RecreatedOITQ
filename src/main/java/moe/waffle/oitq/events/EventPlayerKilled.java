@@ -9,6 +9,7 @@ import moe.waffle.oitq.core.GameEndReason;
 import moe.waffle.oitq.core.GameVarStorage;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -56,6 +57,7 @@ public class EventPlayerKilled implements Listener {
 
         // all kills give an arrow
         affector.getInventory().addItem(new ItemStack(Material.ARROW, 1));
+        affector.playSound(affector, Sound.BLOCK_PISTON_EXTEND, 0.5f, 2.0f); // nice touch i think :3
 
         // handle this last cuz its not super important
         BroadcastHelper.BroadcastKillSword(affector, affectedPlayer);

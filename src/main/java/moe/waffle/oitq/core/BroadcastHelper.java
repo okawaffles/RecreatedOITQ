@@ -34,13 +34,18 @@ public class BroadcastHelper {
     public static void BroadcastGameStart() {
         Bukkit.getOnlinePlayers().forEach(player -> {
             player.playSound(player, Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 1.0f); // nice touch i think :3
-            player.sendMessage(ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "+============= ONE IN THE QUIVER =============+");
-            player.sendMessage(ChatColor.BLUE + "- First to " + ChatColor.BOLD + "20" + ChatColor.RESET +""+ ChatColor.DARK_GRAY + " kills wins.");
-            player.sendMessage(ChatColor.BLUE + "- Bow shots kill instantly.");
-            player.sendMessage(ChatColor.BLUE + "- Melee hits do not kill instantly.");
-            player.sendMessage(ChatColor.BLUE + "- All kills grant one arrow to the killer.");
-            player.sendMessage(ChatColor.BLUE + "You're playing map \"" + ChatColor.DARK_AQUA + CfgComponent.loadedMap.mapName + ChatColor.BLUE + "\" by " + ChatColor.DARK_AQUA + CfgComponent.loadedMap.mapAuthor);
-            player.sendMessage(ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "+===========================================+");
+            player.sendMessage(""+ChatColor.DARK_GREEN + ChatColor.BOLD + ChatColor.STRIKETHROUGH + "=============================================");
+            player.sendMessage(ChatColor.WHITE + "Bow and Arrow insta-kills.");
+            player.sendMessage(ChatColor.WHITE + "You recieve 1 Arrow per kill.");
+            player.sendMessage(ChatColor.WHITE + "Glass blocks are not breakable yet.");
+            player.sendMessage(ChatColor.WHITE + "First to 20 kills wins.");
+            player.sendMessage("");
+            player.sendMessage(ChatColor.GREEN + "Map - " +
+                    ChatColor.WHITE + ChatColor.BOLD + CfgComponent.loadedMap.mapName +
+                    ChatColor.RESET + ChatColor.GRAY + " by " +
+                    ChatColor.WHITE + ChatColor.BOLD + CfgComponent.loadedMap.mapAuthor
+            );
+            player.sendMessage(""+ChatColor.DARK_GREEN + ChatColor.BOLD + ChatColor.STRIKETHROUGH + "=============================================");
         });
     }
 }

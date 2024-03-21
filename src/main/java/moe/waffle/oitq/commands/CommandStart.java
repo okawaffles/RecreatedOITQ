@@ -46,8 +46,7 @@ public class CommandStart implements CommandExecutor {
             player.getInventory().clear();
             player.getInventory().addItem(
                     IRONSWORD,
-                    BOW,
-                    new ItemStack(Material.ARROW, 1)
+                    BOW
             );
 
             player.spigot().respawn();

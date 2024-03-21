@@ -10,13 +10,15 @@ import moe.waffle.oitq.events.EventPlayerDamage;
 import moe.waffle.oitq.events.EventPlayerKilled;
 import moe.waffle.oitq.events.EventPlayerRespawn;
 import org.bukkit.Bukkit;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Main extends JavaPlugin {
-
+    public static Plugin Instance;
     @Override
     public void onEnable() {
         // Plugin startup logic
+        Instance = this;
 
         // load commands
         getCommand("start").setExecutor(new CommandStart());
