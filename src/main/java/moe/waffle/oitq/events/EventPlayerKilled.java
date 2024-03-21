@@ -26,6 +26,8 @@ public class EventPlayerKilled implements Listener {
     public void OnEntityDeath(PlayerDeathEvent ev) {
         if (!GameVarStorage.GameActive) return;
 
+        ev.setDeathMessage(""); // hide death message.
+
         Player affectedPlayer = ev.getEntity();
         Player affector = affectedPlayer.getKiller();
 
@@ -35,8 +37,6 @@ public class EventPlayerKilled implements Listener {
 
         // this should prevent double points
         if (affectedPlayer.getLastDamageCause().getCause() == EntityDamageEvent.DamageCause.PROJECTILE) return;
-
-        ev.setDeathMessage(""); // hide death message.
 
         Integer KillerCurrentScore = 0;
 

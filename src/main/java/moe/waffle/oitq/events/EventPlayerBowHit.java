@@ -33,6 +33,8 @@ public class EventPlayerBowHit implements Listener {
 
         // make sure it is arrow
         if (damaged instanceof Player && ev.getCause() == EntityDamageEvent.DamageCause.PROJECTILE) {
+            if (damaged.getName().equals(damager.getName())) return; // this not working
+
             ((Player) damaged).setHealth(0);
 
             Player killer = (Player) ((Arrow) damager).getShooter();

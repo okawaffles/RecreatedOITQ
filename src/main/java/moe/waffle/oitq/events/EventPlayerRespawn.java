@@ -27,19 +27,19 @@ public class EventPlayerRespawn implements Listener {
         respawnee.setHealth(20);
 
         ItemStack BOW = new ItemStack(Material.BOW, 1);
-        ItemStack IRONSWORD = new ItemStack(Material.IRON_SWORD, 1);
+        ItemStack STONESWORD = new ItemStack(Material.STONE_SWORD, 1);
 
         ItemMeta BowItemMeta = BOW.getItemMeta();
         BowItemMeta.setUnbreakable(true);
         BOW.setItemMeta(BowItemMeta);
 
-        ItemMeta SwordMeta = IRONSWORD.getItemMeta();
+        ItemMeta SwordMeta = STONESWORD.getItemMeta();
         SwordMeta.setUnbreakable(true);
-        IRONSWORD.setItemMeta(SwordMeta);
+        STONESWORD.setItemMeta(SwordMeta);
 
         respawnee.getInventory().clear();
         respawnee.getInventory().addItem(
-                IRONSWORD,
+                STONESWORD,
                 BOW,
                 new ItemStack(Material.ARROW, 1)
         );
